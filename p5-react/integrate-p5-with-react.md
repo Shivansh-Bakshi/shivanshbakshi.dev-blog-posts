@@ -2,7 +2,7 @@
 title: How to integrate p5 sketches with React (the right way)
 date: 2023-01-20
 synopsis: Create or add existing p5 sketches to your React application in a manner that is safe with Server Side Rendering used in popular React frameworks such as Next.js and Gatsby
-cover: "./cover.png"
+cover: ./cover.png
 ---
 
 ## Introduction
