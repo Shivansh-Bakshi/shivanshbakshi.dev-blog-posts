@@ -1,0 +1,14 @@
+name: Update shivanshbakshi.dev
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Trigger netlify update using build hook"
+      - run: echo "curl -X POST -d {} https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_BUILD_TRIGGER }}"
+      
+      
