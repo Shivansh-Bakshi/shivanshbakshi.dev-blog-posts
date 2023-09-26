@@ -8,7 +8,11 @@ jobs:
   trigger-netlify-build:
     runs-on: ubuntu-latest
     steps:
+      - shell: bash
+        env:
+          NETLIFY_BUILD_TRIGGER: ${{ secrets.NETLIFY_BUILD_TRIGGER }}
       - run: echo "Trigger netlify update using build hook"
-      - run: echo "curl -X POST -d {} https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_BUILD_TRIGGER }}"
+      - run: |
+          echo "curl -X POST -d {} https://api.netlify.com/build_hooks/$NETLIFY_BUILD_TRIGGER"
       
       
