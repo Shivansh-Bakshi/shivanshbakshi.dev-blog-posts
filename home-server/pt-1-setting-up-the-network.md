@@ -2,7 +2,7 @@
 title: "Building your own Home Server - Part 1: Setting up the network"
 date: 2023-09-28
 synopsis: Securely configure your home network to set up a personal server accessible from the Internet using an old router and a spare laptop/PC.
-cover: ./cover.jpeg
+cover: ./pt-1/cover.jpeg
 ---
 
 ## Introduction
