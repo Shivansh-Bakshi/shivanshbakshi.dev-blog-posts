@@ -17,14 +17,14 @@ While this part of setting up a home server is completely optional, I highly rec
 
 **What you need to get started:**
 - A computer you want to use as your server (maybe an old laptop/PC)
-- An extra router (most ISPs provide a new router for free when you get a new connection, you can use your old router as the extra router)
+- An extra router (most ISPs provide a new router for free when you get a new connection. You can use the old router as the extra router)
 - A stable internet connection
 
 **Disclaimer: The information provided is purely for general and educational purposes and does not constitute network security advice. The information may not be up-to-date with latest security standards or vulnerabilities. Any third-party links are purely for reference and are not affiliate links.** 
 
 ## The Internet
 
-Before we begin setting up our server, it is important to build some foundational knowledge of how the internet works. Ofcourse, this is a vast topic, far beyond the scope of a mere post, but I will cover the basics needed for setting up your server. 
+Before we begin setting up our server, it is important to build some foundational knowledge of how the internet works. Ofcourse, this is a vast topic, far beyond the scope of a mere blog post, but I will cover the basics needed for setting up your server. 
 
 This post assumes you have a basic understanding of IP Address allocation, Subnet Masks, Classful and Classless (CIDR) address, and network ports. I will only briefly introduce some topics I encountered while setting up my own server. If you are familiar with static and dynamic IP, exposing Ports, Firewalls, NAT and CGNAT, and Zero Trust Model, feel free to skip this section and head to [Building your Server](#building-your-server).
 
@@ -34,14 +34,14 @@ When you get a new connection from an ISP, they (often) provide you a router, co
 
 ![Internet Flowchart](./pt-1/internet-1.png "How the Internet works")
 
-When you connect a device to your wi-fi, the router provides it an IP address from a set of IP addresses available to it. This is your device's internal IP, and is most often from the ranges described by [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918), i.e.,
+When you connect a device to your Wi-Fi, the router provides it an IP address from a set of IP addresses available to it. This is your device's internal IP, and is most often from the ranges described by [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918), i.e.,
 - 10.0.0.0/8
 - 172.16.0.0/12
 - 192.168.0.0/16
 
-These IPs are not exposed to the world, and are limited to your router. Whenever your device connects to the router, it get's a new IP address from this address space. When you make a request to the public internet, the world does not see this IP address. It sees the IP address of the router. Most commercial routers perform Network Address Translation (NAT), so the server cannot respond to your personal devices directly, but only to the router. The router finally decides which device to send the response to based on where it is coming from. A router maintains a lookup table for this purpose.
+These IPs are not exposed to the world, and are limited to your router. Whenever your device connects to the router, it gets a new IP address from this address space. When you make a request to the public internet, the world does not see this IP address. It sees the IP address of the router. Most commercial routers perform Network Address Translation (NAT), so the server cannot respond to your personal devices directly, but only to the router. The router finally decides which device to send the response to based on where it is coming from. A router maintains a lookup table for this purpose.
 
-A quick google search reveals plenty more details behind the working of NAT. For the purpose of our home server, it suffices to understand that just running a server on your device does not make it accessible from the public internet.
+A quick google search reveals plenty more details behind the working of NAT. For the purpose of our home server, it suffices to understand that just running a server OS on your device does not make it accessible from the public internet.
 
 ### Opening up
 
@@ -56,17 +56,19 @@ Here, you can specify a mapping for external Ports to internal services, for exa
 
 Here, you're specifying that forward any requests that come to the router on port 80 over TCP to the internal device on IP address 192.168.0.4:80. 
 
-Just specifying the port forwarding rules may not be enough. Your router might have a firewall that prevents all ingress traffic, or your server device might have one. These firewalls might prevent your server from being accessible over the internet.
+Just specifying the port forwarding rules may not be enough. Your router might have a firewall that prevents all ingress traffic, or your server device might have one. These firewalls might prevent your server from being accessible over the internet. To get up and running, you will have to configure the firewall to allow traffic on the required ports as well (in this case, Port 80).
 
-**Note:** The default absence of port forwarding and denial by firewalls exist for a good reason. It is not recommended to open these directly unless you know what you're doing. 
+**Note:** The default denial of ingress by firewalls exist for a good reason. It is not recommended to open these directly unless you know what you're doing. 
 
 ### Static and Dynamic IP
 
 Most commercial ISPs do not provide your router a static IP by default. They have a DHCP renewal period, which could be in the frequency of every few days or every few weeks. Thus, the IP address of your router (and thus, your server) will keep changing. If this is of no concern to you because you want to access your server only internally, great. But for all other use cases where you want to be able to access your server from anywhere, you'll have to handle this. There are two well-known options for this.
 
-#### Purchase a static IP
+#### Purchasing a static IP
 
-Most ISP's let you purchase a static IP for some charge. They might ask for descriptions or further clarification as to why you need one. You can contact your ISP for further clarifications on this route
+Most ISP's let you purchase a static IP for some charge. They might ask for descriptions or further clarification as to why you need one. You can contact your ISP for further clarifications on this route. 
+
+After you purchase a static IP, you can use this to refer to your server from anywhere in the world.
 
 #### Set up Dynamic DNS (DDNS)
 
@@ -80,9 +82,9 @@ If you observe that the WAN IP of your router begins with one of the private add
 
 ![Carrier-Grade NAT](./pt-1/cgnat.png "Carrier Grade NAT")
 
-Carrier-Grade NAT is another layer of NAT over your router. Think of it as your router being behind another router of your ISP. In this case, simply opening the ports on your router will NOT make your server accessible from the internet, since the request will get blocked at your ISP. In such cases, you are left with no choice but to request your ISP to allow it to open ports, which they most certainly will not do without you purchasing a static IP from them.
+Carrier-Grade NAT is another layer of NAT over your router. Think of it as your router being behind another router of your ISP. In this case, simply opening the ports on your router will NOT make your server accessible from the internet, since the request will get blocked at your ISP. In such cases, you are left with no choice but to request your ISP to allow it to open ports, which they most certainly will not without you purchasing a static IP from them.
 
-An alternative could be to switch to IPv6 addressing, since an IPv6 address (is supposed to) directly refers to the device it is attached to, but this did not work for me and needs further diving into.
+An alternative could be to switch to IPv6 addressing, since an IPv6 address – *ideally* – directly refers to the device it is attached to, but this did not work for me and needs further diving into.
 
 ### Zero Trust Model
 
@@ -95,7 +97,7 @@ This third option lets you access resources on your internal server from outside
 
 ![Zero Trust Tunneling](./pt-1/zero-trust-1.png "Zero Trust Network Access")
 
-In this model, applications are never exposed to the internet. They are only viisble to authenticated users. A quick google search on Zero Trust Model reveals far more than this blog post can, but you can read more on Cloudflare's site [here](https://www.cloudflare.com/zero-trust/), or Winlow TG's site [here](https://winslowtg.com/zero-trust-network-access-ztna-a-network-without-borders/).
+In this model, applications are never exposed to the internet. They are only visible to authenticated users. A quick google search on Zero Trust Model reveals far more than this blog post can, but you can read more on Cloudflare's site [here](https://www.cloudflare.com/zero-trust/), or Winlow TG's site [here](https://winslowtg.com/zero-trust-network-access-ztna-a-network-without-borders/).
 
 I will go in-depth about configuring your server with the zero trust model in further posts in this series, since this is the model that I am going with. If this is the mode you choose to follow, you *can* skip this post, but if you have an extra router lying around, this post will perhaps be helpful for you too. 
 
@@ -149,7 +151,7 @@ This Works. You should be able to see the configuration page for the server rout
 
 **On the Server Device**
 
-Connect your server device to the server router. Note that you need a display device connected for this step. If you are using an old laptop, this should not be an issue. If you are using a desktop PC, have it connected to a monitor *temporarily*. Assuming you have no GUI on the server, you will have to refer to your server OSs' guides or stackoverflow channels to figure out how to connect it to a network via the CLI. 
+Connect your server device to the server router. Note that you need a display device connected to the server system for this step. If you are using an old laptop, this should not be an issue. If you are using a desktop PC, have it connected to a monitor *temporarily*. Assuming you have no GUI on the server, you will have to refer to your server OSs' guides or stackoverflow channels to figure out how to connect it to a network via the CLI. 
 
 On Ubuntu Server, you can use the `nmcli` tool from the `network-manager` package to control network connections from the TTY terminal.
 
@@ -180,17 +182,19 @@ This is all you need to do on the server PC
 
 You should be connected to the Home Router on this device by now. This time, go to the Home Router's configuration page (you know how to find this by now). You can configure it's name and password here like usual.
 
-The important step is to create a different subnet for the devices on this router. From the LAN settings page, enter a different subnet from the one on the server router. In this case, this is 10.0.1.0/24.
+The important step is to create a different subnet for the devices on this router. From the LAN settings page, enter a different subnet from the one on the server router. In this example, this is 10.0.1.0/24, but you can keep it whatever.
 
-Now restart (NOT reset!) both routers. You can do this without changing connections. Remember, the Server router's configuration page is accessible while being connected to the home router.
+Now restart (NOT reset!) both routers. You can do this without changing Wi-FI connections. Remember, the Server router's configuration page is accessible while being connected to the home router.
 
-Keep DHCP enabled on both the routers, since there is no overlapping between the subnets available to the two. Both the routers can independently allot IP address to their devices.
+You will also want to reserve the IP address for the server system on the server router. Remeber the IP address and MAC address you noted in the previous step? From the server router's configuration page, reserve the IP address for the server's MAC address. On a TP-Link router, this setting is available in the LAN Settings page if you scroll a bit.
+
+Keep DHCP enabled on both the routers, since there is no overlap between the subnets available to the two. Both the routers can independently allot IP address to their devices.
 
 ### Step 3: Test Connectivity
 
 That's it for setting up the routers. We have achieved the desired network requirements. 
 
-To test this, ping the server's IP from your home device. **This will work**. If it doesn't check if your server is connected to the server router or not. If it isn't you'll have to connect to it again.
+To test this, ping the server's IP from your home device. **This will work**. If it doesn't, check if your server is connected to the server router or not. If it isn't, you'll have to connect to it again.
 
 Now try pinging the home device's IP from your server. **This will fail!**. The home device is not visible to the server.
 
@@ -200,6 +204,6 @@ Finally, try SSH-ing into your server from the home device. **This will work**. 
 
 ## Conclusion
 
-We have built a secure environment for our home devices while ready-ing our network to act as a server. If you choose to expose ports for creating your server after solving any Static IP or DDNS or CGNAT issues, you'll should do so on the server router. Ensure you have proper firewalls and other protections in place to prevent unauthorized access. You can limit access via specific IPs, specific Ports, or even specific Protocols (TCP or UDP).
+We have built a secure environment for our home devices while ready-ing our network to act as a server. If you choose to expose ports for creating your server after solving any Static IP or DDNS or CGNAT issues, you should do so on the server router. Ensure you have proper firewalls and other protections in place to prevent unauthorized access. You can limit access via specific IPs, specific Ports, or even specific Protocols (TCP or UDP).
 
 Thank you for reading! Please leave any feedbacks or suggestions in the comments below!
