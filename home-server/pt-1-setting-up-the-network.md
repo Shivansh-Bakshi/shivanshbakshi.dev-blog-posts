@@ -137,7 +137,7 @@ In this configuration, devices on the Home Router are more secure since they are
 
 We will *temporarily* connect to router 1 from a home device to access the router's configuration page from a browser.
 
-Connect to your Server router and go to it's configuration page. This is mostly the xxx.xxx.xx.1 page on most routers. If you do not know, in most cases, you can check your system's internal IP address, copy paste it in a browser, and change the last number to 1. The default login on most routers is some comibnation of `admin` and `password`. This is also available publically for most routers. If you changed your router password and forgot it and there's no forgot password option, you are left with no choice but to reset your router.
+Connect to your Server router and go to it's configuration page. This is mostly the xxx.xxx.xx.1 page on most routers. If you do not know, in most cases, you can check your system's internal IP address, copy paste it in a browser, and change the last number to 1. The default login on most routers is some combination of `admin` and `password`. This is also available publically for most routers. If you changed your router password and forgot it and there's no forgot password option, you are left with no choice but to reset your router.
 
 On the configuration page, change the name of the network to something more distinguishable for the home server, such as XYZ-Home, and give it a strong password that is different from your usual home wifi password. You do not want anyone accidentally connecting to this router.
 
