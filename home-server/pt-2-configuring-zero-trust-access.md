@@ -117,6 +117,6 @@ There are two ways to create a tunnel. Cloudflare has a pretty good documentatio
 2. [Locally managed](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/) (via CLI on your server)
 
 
-That's about it. This post was more of a cumulation of the various options I looked into, and is by no means exhaustive. It serves more as a reference on a possible (the only) good option I've found to reach my resources securely without getting into a hassle with ISPs.
+That's about it. This post was more of a culmination of the various options I looked into, and is by no means exhaustive. It serves more as a reference on a possible option (the only good one) I've found to reach my resources securely without getting into a hassle with ISPs.
 
 Thank you for reading!
