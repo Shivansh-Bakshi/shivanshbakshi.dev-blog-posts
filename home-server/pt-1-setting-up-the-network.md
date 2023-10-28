@@ -5,6 +5,10 @@ synopsis: Securely configure your home network to set up a personal server acces
 cover: ./pt-1/cover.jpeg
 ---
 
+> More in this series:  
+[🧮 Part 1: Setting up the Network 🧮](https://www.shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)  
+[Part 2: Configuring Zero Trust Access to your Server](https://www.shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
+
 ## Introduction
 
 I have always wanted to set up my own personal server. It provides an interesting new purpose to old laptops or PCs that would otherwise be discarded for scrap, and if configured correctly, can become a very secure way to store anything.
@@ -207,3 +211,5 @@ Finally, try SSH-ing into your server from the home device. **This will work**. 
 We have built a secure environment for our home devices while ready-ing our network to act as a server. If you choose to expose ports for creating your server after solving any Static IP or DDNS or CGNAT issues, you should do so on the server router. Ensure you have proper firewalls and other protections in place to prevent unauthorized access. You can limit access via specific IPs, specific Ports, or even specific Protocols (TCP or UDP).
 
 Thank you for reading! Please leave any feedbacks or suggestions in the comments below!
+
+Check out the next post to configure access to the server: [Configuring Zero Trust Access to your Server](https://www.shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
