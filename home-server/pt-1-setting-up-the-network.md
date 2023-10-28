@@ -5,9 +5,7 @@ synopsis: Securely configure your home network to set up a personal server acces
 cover: ./pt-1/cover.jpeg
 ---
 
-> More in this series:  
-[🧮 Part 1: Setting up the Network 🧮](https://www.shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)  
-[Part 2: Configuring Zero Trust Access to your Server](https://www.shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
+> More in this series:<br>[🧮 Part 1: Setting up the Network 🧮](https://www.shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[Part 2: Configuring Zero Trust Access to your Server](https://www.shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
 
 ## Introduction
 
