@@ -1,9 +1,12 @@
 ---
-title: "Building your own Home Server - Part 2: Configuring Zero Trust Access to your server"
+title: "Building your own Home Server - Part 2: Configuring Zero Trust Access to your Server"
 date: 2023-10-24
 synopsis: Connect to and access applications on your server without ever exposing any ports or opening your network to the internet
 cover: ./pt-2/cover.jpg
 ---
+
+> More in this series:<br>[Part 1: Setting up the Network](https://www.shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](https://www.shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
+
 
 ## Introduction
 
