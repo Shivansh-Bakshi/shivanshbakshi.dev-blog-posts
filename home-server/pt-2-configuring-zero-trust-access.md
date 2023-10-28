@@ -5,7 +5,7 @@ synopsis: Connect to and access applications on your server without ever exposin
 cover: ./pt-2/cover.jpg
 ---
 
-> More in this series:<br>[Part 1: Setting up the Network](https://www.shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](https://www.shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
+> More in this series:<br>[Part 1: Setting up the Network](https://shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](https://shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
 
 
 ## Introduction
