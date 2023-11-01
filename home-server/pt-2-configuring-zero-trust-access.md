@@ -5,7 +5,7 @@ synopsis: Connect to and access applications on your server without ever exposin
 cover: ./pt-2/cover.jpg
 ---
 
-> More in this series:<br>[Part 1: Setting up the Network](https://shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](https://shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
+> More in this series:<br>[Part 1: Setting up the Network](https://shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](https://shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)<br>[Part 3: Hosting your Personal Git Server with Gitea and Docker](https://shivanshbakshi.dev/blog/home-server/pt-3-hosting-a-personal-git-server/)
 
 
 ## Introduction
@@ -121,5 +121,7 @@ There are two ways to create a tunnel. Cloudflare has a pretty good documentatio
 
 
 That's about it. This post was more of a culmination of the various options I looked into, and is by no means exhaustive. It serves more as a reference on a possible option (the only good one) I've found to reach my resources securely without getting into a hassle with ISPs.
+
+For an example of accessing your resources protected with SSL using Cloudflare Zero Trust, check out my next post on setting up a personal Git server [here](https://shivanshbakshi.dev/blog/home-server/pt-3-hosting-a-personal-git-server/).
 
 Thank you for reading!
