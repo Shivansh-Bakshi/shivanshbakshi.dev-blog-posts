@@ -5,7 +5,7 @@ synopsis: Securely configure your home network to set up a personal server acces
 cover: ./pt-1/cover.jpeg
 ---
 
-> More in this series:<br>[🧮 Part 1: Setting up the Network 🧮](https://shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[Part 2: Configuring Zero Trust Access to your Server](https://shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)<br>[Part 3: Hosting your Personal Git Server with Gitea and Docker](https://shivanshbakshi.dev/blog/home-server/pt-3-hosting-a-personal-git-server/)
+> More in this series:<br>[🧮 Part 1: Setting up the Network 🧮](/home-server/pt-1-setting-up-the-network.md)<br>[Part 2: Configuring Zero Trust Access to your Server](/home-server/pt-2-configuring-zero-trust-access.md)<br>[Part 3: Hosting your Personal Git Server with Gitea and Docker](/home-server/pt-3-hosting-a-personal-git-server.md)
 
 ## Introduction
 
@@ -210,4 +210,4 @@ We have built a secure environment for our home devices while ready-ing our netw
 
 Thank you for reading! Please leave any feedbacks or suggestions in the comments below!
 
-Check out the next post to configure access to the server: [Configuring Zero Trust Access to your Server](https://shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)
+Check out the next post to configure access to the server: [Configuring Zero Trust Access to your Server](/home-server/pt-2-configuring-zero-trust-access.md)

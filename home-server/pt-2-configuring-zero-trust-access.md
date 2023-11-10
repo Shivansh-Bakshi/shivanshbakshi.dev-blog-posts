@@ -5,12 +5,12 @@ synopsis: Connect to and access applications on your server without ever exposin
 cover: ./pt-2/cover.jpg
 ---
 
-> More in this series:<br>[Part 1: Setting up the Network](https://shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](https://shivanshbakshi.dev/blog/home-server/pt-2-configuring-zero-trust-access/)<br>[Part 3: Hosting your Personal Git Server with Gitea and Docker](https://shivanshbakshi.dev/blog/home-server/pt-3-hosting-a-personal-git-server/)
+> More in this series:<br>[Part 1: Setting up the Network](/home-server/pt-1-setting-up-the-network/)<br>[💾 Part 2: Configuring Zero Trust Access to your Server 💾](/home-server/pt-2-configuring-zero-trust-access/)<br>[Part 3: Hosting your Personal Git Server with Gitea and Docker](/home-server/pt-3-hosting-a-personal-git-server/)
 
 
 ## Introduction
 
-In my [last post](https://www.shivanshbakshi.dev/blog/home-server/pt-1-setting-up-the-network/#zero-trust-model), I briefly mentioned of a way to access resources on your server without exposing any ports or opening your firewall. In this post, I will go in further depth about the required configuration to enable this access.
+In my [last post](/home-server/pt-1-setting-up-the-network/#zero-trust-model), I briefly mentioned of a way to access resources on your server without exposing any ports or opening your firewall. In this post, I will go in further depth about the required configuration to enable this access.
 
 Before we begin, I must confess this method is not truly free. It does require that you own a domain name. Depending on the domain name provider, this might even be more expensive than purchasing a static IP. I went with this method because of two reasons:
 
@@ -122,6 +122,6 @@ There are two ways to create a tunnel. Cloudflare has a pretty good documentatio
 
 That's about it. This post was more of a culmination of the various options I looked into, and is by no means exhaustive. It serves more as a reference on a possible option (the only good one) I've found to reach my resources securely without getting into a hassle with ISPs.
 
-For an example of accessing your resources protected with SSL using Cloudflare Zero Trust, check out my next post on setting up a personal Git server [here](https://shivanshbakshi.dev/blog/home-server/pt-3-hosting-a-personal-git-server/).
+For an example of accessing your resources protected with SSL using Cloudflare Zero Trust, check out my next post on setting up a personal Git server [here](/home-server/pt-3-hosting-a-personal-git-server/).
 
 Thank you for reading!
