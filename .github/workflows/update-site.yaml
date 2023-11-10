@@ -5,15 +5,16 @@ on:
       - master
 
 jobs:
-  trigger-netlify-build:
+  publish:
     runs-on: ubuntu-latest
     environment: 'prod'
+    name: Update Site on Cloudflare Pages
     steps:
-      - run: echo "Trigger netlify update using build hook"
+      - run: echo "Trigger cloudflare update using build hook"
       - shell: bash
         env:
-          NETLIFY_BUILD_TRIGGER: ${{ secrets.NETLIFY_BUILD_TRIGGER }}
+          CLOUDFLARE_BUILD_TRIGGER: ${{ secrets.CLOUDFLARE_BUILD_TRIGGER }}
         run: |
-          curl -X POST -d {} https://api.netlify.com/build_hooks/$NETLIFY_BUILD_TRIGGER
+          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_BUILD_TRIGGER
       
       
