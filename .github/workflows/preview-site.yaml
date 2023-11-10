@@ -1,0 +1,20 @@
+name: Preview shivanshbakshi.dev
+on: 
+  push:
+    branches:
+      - dev
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: 'prod'
+    name: Update dev preview on Cloudflare Pages
+    steps:
+      - run: echo "Trigger preview build on cloudflare using build hook"
+      - shell: bash
+        env:
+          CLOUDFLARE_PREVIEW_TRIGGER: ${{ secrets.CLOUDFLARE_PREVIEW_TRIGGER }}
+        run: |
+          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_PREVIEW_TRIGGER
+      
+      
