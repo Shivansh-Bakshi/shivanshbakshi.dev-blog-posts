@@ -7,14 +7,14 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: 'prod'
+    environment: 'dev'
     name: Update dev preview on Cloudflare Pages
     steps:
       - run: echo "Trigger preview build on cloudflare using build hook"
       - shell: bash
         env:
-          CLOUDFLARE_PREVIEW_TRIGGER: ${{ secrets.CLOUDFLARE_PREVIEW_TRIGGER }}
+          CLOUDFLARE_DEPLOY_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
         run: |
-          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_PREVIEW_TRIGGER
+          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_DEPLOY_TOKEN
       
       

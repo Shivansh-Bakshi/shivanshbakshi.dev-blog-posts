@@ -13,8 +13,8 @@ jobs:
       - run: echo "Trigger cloudflare update using build hook"
       - shell: bash
         env:
-          CLOUDFLARE_BUILD_TRIGGER: ${{ secrets.CLOUDFLARE_BUILD_TRIGGER }}
+          CLOUDFLARE_DEPLOY_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
         run: |
-          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_BUILD_TRIGGER
+          curl -X POST https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/$CLOUDFLARE_DEPLOY_TOKEN
       
       
