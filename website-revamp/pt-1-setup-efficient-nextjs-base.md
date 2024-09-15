@@ -36,7 +36,7 @@ We'll create two files for this:
 
 `.nvmrc`
 
-```text
+```
 20.7.0
 ```
 
@@ -44,7 +44,7 @@ This file tells all the tools to use Node.js Version 20.7.0. I am setting this l
 
 `.npmrc`
 
-```text
+```
 engine-strict=true
 ```
 
@@ -84,7 +84,7 @@ npm run dev
 
 You should see that a server has started on port 3000. Open up `http://localhost:3000/` in your browser and you should be able to see the Next.js template screen
 
-![](image.png){width=70%}
+![Next.js Starter](./pt-1/next-js-starter.png "Starter Page for new Next.js Application")
 
 Let's try running the build command as well to be sure that we'll be able to deploy the site later on
 
